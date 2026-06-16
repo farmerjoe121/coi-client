@@ -44,6 +44,7 @@ public class EffectManager {
      * effectId = "all"  → stop all active effects (params ignored)
      */
     public static void trigger(String effectId, String params) {
+        if (!HudConfig.getSettings().visualEffectsEnabled) return;
         if (HudConfig.getSettings().epilepsyMode && PHOTOSENSITIVE_EFFECTS.contains(effectId)) return;
 
         if ("all".equals(effectId)) {

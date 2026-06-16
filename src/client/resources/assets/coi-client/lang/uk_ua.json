@@ -60,5 +60,6 @@
   "screen.coi.select_ability": "Оберіть Здібність",
   "screen.coi.show_madness_bar": "Показувати Шкалу Божевілля",
   "screen.coi.madness_y_offset": "Вертикальна Позиція Божевілля",
-  "screen.coi.madness_y_offset_field": "Зсув Божевілля Y"
+  "screen.coi.madness_y_offset_field": "Зсув Божевілля Y",
+  "screen.coi.visual_effects_enabled": "Увімкнути Візуальні Ефекти"
 }

@@ -23,6 +23,7 @@ public class HudSettingsScreen extends Screen {
     private Checkbox showAbilityNamesCheckbox;
     private Checkbox showGlowEffectCheckbox;
     private Checkbox epilepsyModeCheckbox;
+    private Checkbox visualEffectsEnabledCheckbox;
     private Checkbox showMadnessBarCheckbox;
 
     private EditBox hudXField;
@@ -59,6 +60,7 @@ public class HudSettingsScreen extends Screen {
         to.hudScale = from.hudScale;
         to.wheelSlots = from.wheelSlots;
         to.epilepsyMode = from.epilepsyMode;
+        to.visualEffectsEnabled = from.visualEffectsEnabled;
         to.showMadnessBar = from.showMadnessBar;
         to.madnessYOffset = from.madnessYOffset;
     }
@@ -338,6 +340,14 @@ public class HudSettingsScreen extends Screen {
         this.addRenderableWidget(epilepsyModeCheckbox);
         currentY += 25;
 
+        visualEffectsEnabledCheckbox = Checkbox.builder(Component.translatable("screen.coi.visual_effects_enabled"), Minecraft.getInstance().font)
+                .pos(leftColumn, currentY)
+                .maxWidth(200).onValueChange((checkbox, checked) -> settings.visualEffectsEnabled = checked).selected(settings.visualEffectsEnabled)
+                .build();
+
+        this.addRenderableWidget(visualEffectsEnabledCheckbox);
+        currentY += 25;
+
         showMadnessBarCheckbox = Checkbox.builder(Component.translatable("screen.coi.show_madness_bar"), Minecraft.getInstance().font)
                 .pos(leftColumn, currentY)
                 .maxWidth(200).onValueChange((checkbox, checked) -> settings.showMadnessBar = checked).selected(settings.showMadnessBar)
@@ -458,6 +468,7 @@ public class HudSettingsScreen extends Screen {
         settings.showAbilityNames = showAbilityNamesCheckbox.selected();
         settings.showGlowEffect = showGlowEffectCheckbox.selected();
         settings.epilepsyMode = epilepsyModeCheckbox.selected();
+        settings.visualEffectsEnabled = visualEffectsEnabledCheckbox.selected();
         settings.showMadnessBar = showMadnessBarCheckbox.selected();
 
         HudConfig.setSettings(settings);
