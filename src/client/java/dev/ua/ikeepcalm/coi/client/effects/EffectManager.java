@@ -94,6 +94,11 @@ public class EffectManager {
         Minecraft client = Minecraft.getInstance();
         if (client.player == null) return;
 
+        if (!HudConfig.getSettings().visualEffectsEnabled) {
+            if (!activeEffects.isEmpty()) stopAll();
+            return;
+        }
+
         int w = client.getWindow().getGuiScaledWidth();
         int h = client.getWindow().getGuiScaledHeight();
         float tickDelta = 1.0f;

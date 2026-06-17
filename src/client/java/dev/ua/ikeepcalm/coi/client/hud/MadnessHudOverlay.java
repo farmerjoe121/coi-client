@@ -53,6 +53,7 @@ public class MadnessHudOverlay {
     }
 
     private static void renderScreenEffects(GuiGraphicsExtractor ctx, int w, int h, int stage, double madness) {
+        if (!HudConfig.getSettings().visualEffectsEnabled) return;
         if (stage < 2) return; // No screen effects for stages 0 and 1
 
         long time = System.currentTimeMillis();
